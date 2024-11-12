@@ -10,6 +10,7 @@ from openCHA.tasks import RunPythonCode
 from openCHA.tasks import SerpAPI
 from openCHA.tasks import TaskType
 from openCHA.tasks import TestFile
+from openCHA.tasks import CaptionImage
 from openCHA.tasks.affect import ActivityAnalysis
 from openCHA.tasks.affect import ActivityGet
 from openCHA.tasks.affect import PPGAnalysis
@@ -33,6 +34,7 @@ TASK_TO_CLASS: Dict[TaskType, Type[BaseTask]] = {
     TaskType.GOOGLE_TRANSLATE: GoogleTranslate,
     TaskType.ASK_USER: AskUser,
     TaskType.TEST_FILE: TestFile,
+    TaskType.CAPTION_IMAGE: CaptionImage,
     TaskType.RUN_PYTHON_CODE: RunPythonCode,
     TaskType.PPG_GET: PPGGet,
     TaskType.PPG_ANALYSIS: PPGAnalysis,

@@ -11,6 +11,7 @@ class TaskType(str, Enum):
     GOOGLE_TRANSLATE = "google_translate"
     ASK_USER = "ask_user"
     TEST_FILE = "test_file"
+    CAPTION_IMAGE = "caption_image"
     RUN_PYTHON_CODE = "run_python_code"
     PPG_GET = "affect_ppg_get"
     PPG_ANALYSIS = "affect_ppg_analysis"

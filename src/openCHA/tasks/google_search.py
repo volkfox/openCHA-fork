@@ -18,7 +18,7 @@ class GoogleSearch(BaseTask):
     chat_name: str = "GoogleSearch"
     description: str = "Uses google to search the internet for the requested query and returns the url of the top website."
     dependencies: List[str] = []
-    inputs: List[str] = ["It should be a search query."]
+    inputs: List[str] = ["A search query which combines the available information into a thoughtful search query about the user's problem."]
     outputs: List[str] = [
         "It returns a json object containing key: **url**. For example: {'url': 'http://google.com'}"
     ]

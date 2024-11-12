@@ -108,19 +108,38 @@ class BaseTask(BaseModel):
 
 
         """
-        return [
-            json.loads(
-                self.datapipe.retrieve(
-                    re.search(r"datapipe:[0-9a-f\-]{36}", arg)
-                    .group()
-                    .strip()
-                    .split(":")[-1]
-                )
-            )
-            if "datapipe" in arg
-            else arg.strip()
-            for arg in input_args
-        ]
+
+        parsed_args = []
+        print(f"debug: {input_args}")
+        for arg in input_args:
+            if "datapipe" in arg:
+                key = re.search(r"datapipe:[0-9a-f\-]{36}", arg)
+                key = key.group().strip().split(":")[-1]
+                result = self.datapipe.retrieve(key)
+                # TODO check for JSON
+                # output = json.loads(result)
+                output = result
+            else:
+                print(arg)
+                output = arg.strip()
+            parsed_args = parsed_args + [output]
+
+        return(parsed_args)
+
+        # TODO fix that
+        #return [
+        #    json.loads(
+        #        self.datapipe.retrieve(
+        #            re.search(r"datapipe:[0-9a-f\-]{36}", arg)
+        #            .group()
+        #            .strip()
+        #            .split(":")[-1]
+        #        )
+        #    )
+        #    if "datapipe" in arg
+        #    else arg.strip()
+        #    for arg in input_args
+        #]
 
     def _validate_inputs(self, inputs: List[str]) -> bool:
         """

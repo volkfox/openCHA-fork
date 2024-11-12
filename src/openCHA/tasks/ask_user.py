@@ -20,7 +20,7 @@ class AskUser(BaseTask):
     inputs: List[str] = [
         "The text returned to user. It should be relevant and very detailed based on the latest user's Question."
     ]
-    outputs: List[str] = []
+    outputs: List[str] = ["Returns a string containing the user response to the question. For example: 'I don't like cats'"]
     output_type: bool = False
     return_direct: bool = True
 
@@ -31,7 +31,7 @@ class AskUser(BaseTask):
         """Translate query"""
         if inputs is None:
             return ""
-        return inputs[0]
+        return input(inputs[0])
 
     def explain(
         self,

@@ -149,6 +149,7 @@ class ExtractText(BaseTask):
                 page = browser.new_page()
                 response = page.goto(inputs[0])
                 status = response.status if response else "unknown"
+                print(f"debug status: {status}")
 
                 if status == 200:
                     html_content = page.content()
